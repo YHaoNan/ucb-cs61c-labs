@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "pwd_checker.h": "c",
+        "stdio.h": "c"
+    }
+}
