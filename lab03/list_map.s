@@ -17,7 +17,7 @@ main:
 
     # Load the address of the "square" function into a1 (hint: check out "la" on the green sheet)
     ### YOUR CODE HERE ###
-
+    la a1, square # Yeppppp!!
 
     # Issue the call to map
     jal ra, map
@@ -36,6 +36,7 @@ main:
 
     # Load the address of the "decrement" function into a1 (should be very similar to before)
     ### YOUR CODE HERE ###
+    la a1, decrement
 
 
     # Issue the call to map
@@ -52,43 +53,59 @@ main:
 map:
     # Prologue: Make space on the stack and back-up registers
     ### YOUR CODE HERE ###
+    # we at least save : ra s0 s1
+    addi sp, sp, -12
 
     beq a0, x0, done # If we were given a null pointer (address 0), we're done.
 
     add s0, a0, x0 # Save address of this node in s0
     add s1, a1, x0 # Save address of function in s1
+    sw s0, 0(sp)
+    sw s1, 4(sp)
+    sw ra, 8(sp)
 
     # Remember that each node is 8 bytes long: 4 for the value followed by 4 for the pointer to next.
     # What does this tell you about how you access the value and how you access the pointer to next?
 
     # Load the value of the current node into a0
-    # THINK: Why a0?
+    # THINK: Why a0? Because we save the original a0 to s0
     ### YOUR CODE HERE ###
+    lw a0, 0(s0)
 
     # Call the function in question on that value. DO NOT use a label (be prepared to answer why).
     # Hint: Where do we keep track of the function to call? Recall the parameters of "map".
     ### YOUR CODE HERE ###
+    jalr ra, a1, 0
+    lw s0, 0(sp)
+    lw s1, 4(sp)
 
     # Store the returned value back into the node
-    # Where can you assume the returned value is?
+    # Where can you assume the returned value is?  a0
     ### YOUR CODE HERE ###
+    sw a0, 0(s0)
 
     # Load the address of the next node into a0
     # The address of the next node is an attribute of the current node.
     # Think about how structs are organized in memory.
     ### YOUR CODE HERE ###
+    lw a0, 4(s0)
+
 
     # Put the address of the function back into a1 to prepare for the recursion
     # THINK: why a1? What about a0?
     ### YOUR CODE HERE ###
+    mv a1, s1
 
     # Recurse
     ### YOUR CODE HERE ###
-
+    jal ra, map
 done:
     # Epilogue: Restore register values and free space from the stack
     ### YOUR CODE HERE ###
-
+    addi sp, sp, 12
+    lw s0, 0(sp)
+    lw s1, 4(sp)
+    lw ra, 8(sp)
     jr ra # Return to caller
 
 # === Definition of the "square" function ===
