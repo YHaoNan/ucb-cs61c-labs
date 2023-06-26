@@ -16,11 +16,13 @@
 #We have provided five versions of accumulator. Only one is correct, though all five pass the sanity test above.
 
 accumulatorone:
-	lw s0 0(a0)
-	beq s0 x0 Endone
 	addi sp sp -8
 	sw s0 0(sp)
 	sw ra 4(sp)
+
+	lw s0 0(a0)      # [+] we cannot change s0 before we save it, otherwise the caller will lost its data.
+	beq s0 x0 Endone
+
 	addi a0 a0 4
 	jal accumulatorone
 	lw t1 0(sp)
@@ -33,7 +35,7 @@ Endone:
 	jr ra
 
 accumulatortwo:
-	addi sp sp 4
+	addi sp sp -4 # [+] stack is grow down so we must add -4
 	sw s0 0(sp)
 	li t0 0
 	li s0 0
@@ -48,7 +50,7 @@ Looptwo:
 Endtwo:
 	mv a0 s0
 	lw s0 0(sp)
-	addi sp sp -4
+	addi sp sp 4 # [+] !!!
 	jr ra
 
 accumulatorthree:
@@ -73,6 +75,7 @@ Epiloguethree:
 accumulatorfour:
 	lw t1 0(a0)
 	beq t1 x0 Endfour
+	add t2 t2 zero   # [+] t2 is a random value if we don't set it
 	add t2 t2 t1
 	addi a0 a0 4
 	j accumulatorfour
@@ -86,6 +89,8 @@ accumulatorfive:
 	sw ra 4(sp)
 	mv s0 a0
 	lw a0 0(a0)
+	bne a0 x0 Loopfive  # [+] check the first element is not zero
+	jr ra
 Loopfive:
 	addi s0 s0 4
 	lw t0 0(s0)

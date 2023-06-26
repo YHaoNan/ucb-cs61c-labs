@@ -76,8 +76,36 @@ main:
 # a1 is the address of the "output" array (defined above).
 # Think: why might having a1 be useful?
 f:
-    # YOUR CODE GOES HERE!
+    addi sp, sp, -28
 
+    addi t0, zero, 6
+    sw t0, 0(sp)
+
+    addi t0, zero, 61
+    sw t0, 4(sp)
+
+    addi t0, zero, 17
+    sw t0, 8(sp)
+
+    addi t0, zero, -38
+    sw t0, 12(sp)
+
+    addi t0, zero, 19
+    sw t0, 16(sp)
+
+    addi t0, zero, 42
+    sw t0, 20(sp)
+
+    addi t0, zero, 5
+    sw t0, 24(sp)
+
+    addi a0, a0, 3
+    slli a0, a0, 2
+    add  a0, a0, sp
+
+    lw a0, 0(a0)
+
+    addi sp, sp, 28
     jr ra               # Always remember to jr ra after your function!
 
 print_int:
