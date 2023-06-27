@@ -84,7 +84,7 @@
       <a name="valign" val="base"/>
     </tool>
   </lib>
-  <lib desc="file#../ex3.circ" name="6"/>
+  <lib desc="file#..\ex3.circ" name="6"/>
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>

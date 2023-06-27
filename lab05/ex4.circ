@@ -317,9 +317,11 @@
     </comp>
     <comp lib="1" loc="(330,150)" name="NOT Gate"/>
     <comp lib="1" loc="(330,210)" name="NOT Gate"/>
-    <comp lib="1" loc="(330,90)" name="NOT Gate"/>
+    <comp lib="1" loc="(330,80)" name="NOT Gate"/>
+    <comp lib="1" loc="(540,100)" name="AND Gate"/>
+    <comp lib="1" loc="(650,150)" name="OR Gate"/>
     <wire from="(220,170)" to="(240,170)"/>
-    <wire from="(220,80)" to="(290,80)"/>
+    <wire from="(220,80)" to="(300,80)"/>
     <wire from="(260,160)" to="(270,160)"/>
     <wire from="(260,170)" to="(270,170)"/>
     <wire from="(270,140)" to="(270,160)"/>
@@ -327,14 +329,21 @@
     <wire from="(270,170)" to="(270,200)"/>
     <wire from="(270,200)" to="(290,200)"/>
     <wire from="(290,140)" to="(290,150)"/>
-    <wire from="(290,140)" to="(330,140)"/>
+    <wire from="(290,140)" to="(410,140)"/>
     <wire from="(290,150)" to="(300,150)"/>
     <wire from="(290,200)" to="(290,210)"/>
-    <wire from="(290,200)" to="(330,200)"/>
+    <wire from="(290,200)" to="(550,200)"/>
     <wire from="(290,210)" to="(300,210)"/>
-    <wire from="(290,80)" to="(290,90)"/>
-    <wire from="(290,80)" to="(330,80)"/>
-    <wire from="(290,90)" to="(300,90)"/>
+    <wire from="(330,210)" to="(480,210)"/>
+    <wire from="(330,80)" to="(490,80)"/>
+    <wire from="(480,120)" to="(480,210)"/>
+    <wire from="(480,120)" to="(490,120)"/>
+    <wire from="(540,100)" to="(580,100)"/>
+    <wire from="(550,170)" to="(550,200)"/>
+    <wire from="(550,170)" to="(600,170)"/>
+    <wire from="(580,100)" to="(580,130)"/>
+    <wire from="(580,130)" to="(600,130)"/>
+    <wire from="(650,150)" to="(680,150)"/>
   </circuit>
   <circuit name="StateBit1">
     <a name="appearance" val="logisim_evolution"/>
@@ -368,6 +377,8 @@
     <comp lib="1" loc="(330,150)" name="NOT Gate"/>
     <comp lib="1" loc="(330,210)" name="NOT Gate"/>
     <comp lib="1" loc="(330,90)" name="NOT Gate"/>
+    <comp lib="1" loc="(490,110)" name="AND Gate"/>
+    <comp lib="1" loc="(660,150)" name="OR Gate"/>
     <wire from="(220,170)" to="(240,170)"/>
     <wire from="(220,80)" to="(290,80)"/>
     <wire from="(260,160)" to="(270,160)"/>
@@ -377,13 +388,23 @@
     <wire from="(270,170)" to="(270,200)"/>
     <wire from="(270,200)" to="(290,200)"/>
     <wire from="(290,140)" to="(290,150)"/>
-    <wire from="(290,140)" to="(330,140)"/>
+    <wire from="(290,140)" to="(390,140)"/>
     <wire from="(290,150)" to="(300,150)"/>
     <wire from="(290,200)" to="(290,210)"/>
-    <wire from="(290,200)" to="(330,200)"/>
     <wire from="(290,210)" to="(300,210)"/>
     <wire from="(290,80)" to="(290,90)"/>
-    <wire from="(290,80)" to="(330,80)"/>
+    <wire from="(290,80)" to="(410,80)"/>
     <wire from="(290,90)" to="(300,90)"/>
+    <wire from="(330,150)" to="(410,150)"/>
+    <wire from="(390,140)" to="(390,170)"/>
+    <wire from="(390,170)" to="(610,170)"/>
+    <wire from="(410,130)" to="(410,150)"/>
+    <wire from="(410,130)" to="(440,130)"/>
+    <wire from="(410,80)" to="(410,90)"/>
+    <wire from="(410,90)" to="(440,90)"/>
+    <wire from="(490,110)" to="(570,110)"/>
+    <wire from="(570,110)" to="(570,130)"/>
+    <wire from="(570,130)" to="(610,130)"/>
+    <wire from="(660,150)" to="(680,150)"/>
   </circuit>
 </project>

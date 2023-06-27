@@ -54,7 +54,8 @@ class TestCase():
     try:
       self.fix_circ()
 
-      proc = subprocess.Popen(["java", "-jar", logisim_path, "-tty", "table,binary,tabs", self.get_circ_path()], stdout=subprocess.PIPE)
+      # replace jdk
+      proc = subprocess.Popen(["D:\\Software\\jdk-19\\bin\\java", "-jar", logisim_path, "-tty", "table,binary,tabs", self.get_circ_path()], stdout=subprocess.PIPE)
 
       with open(self.get_expected_table_path(), "r") as reference:
         passed = self.check_output(proc.stdout, reference)
